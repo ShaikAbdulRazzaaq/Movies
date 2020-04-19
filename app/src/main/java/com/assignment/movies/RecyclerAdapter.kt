@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(context: Context,list: List<Movies>) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
-    var list: List<Movies>? = null
-    var context: Context? = null
+    private var list: List<Movies>? = null
+    private var context: Context? = null
 
     init{
         this.list = list
