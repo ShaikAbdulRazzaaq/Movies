@@ -7,40 +7,41 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
-class RecyclerAdapter(context: Context) : RecyclerView.Adapter<RecyclerAdapter.Holder>() {
-    private var context: Context? = null
+class RecyclerAdapter(context: Context,list: List<Movies>) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+    var list: List<Movies>? = null
+    var context: Context? = null
 
-    init {
+    init{
+        this.list = list
         this.context = context
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        return Holder(LayoutInflater.from(context).inflate(R.layout.movie_list, null, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.movie_list, null, false))
+    }
+
+  override  fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val movies = list!![position]
+        holder.title.text = movies.title
+        holder.rating.text = movies.vote_average
+        holder.overView.text = movies.overview
+        holder.date.text = movies.release_date
+        Picasso.get().load(movies.poster_path).centerCrop().into(holder.imageOfPoster)
     }
 
     override fun getItemCount(): Int {
-        return 1
+        return list!!.size
     }
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-
-    }
-
-    class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var movieImage: ImageView? = null
-        private var title: TextView? = null
-        private var rating: TextView? = null
-        private var date: TextView? = null
-        private var overView:TextView?=null
-
-        init {
-            movieImage = itemView.findViewById(R.id.image)
-            title = itemView.findViewById(R.id.TitleOfMovie)
-            date = itemView.findViewById(R.id.dateOfMovie)
-            rating = itemView.findViewById(R.id.ratingPercent)
-            overView=itemView.findViewById(R.id.OverView)
-        }
+    class MyViewHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        var title: TextView = itemView.findViewById(R.id.TitleOfMovie)
+        var date: TextView = itemView.findViewById(R.id.dateOfMovie)
+        var overView: TextView = itemView.findViewById(R.id.OverView)
+        var rating: TextView = itemView.findViewById(R.id.ratingPercent)
+        var imageOfPoster: ImageView = itemView.findViewById(R.id.image)
     }
 
 }
