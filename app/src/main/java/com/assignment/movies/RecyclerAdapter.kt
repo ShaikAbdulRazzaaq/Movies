@@ -8,32 +8,38 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.Holder>() {
-val context:Context?=null
+class RecyclerAdapter(context: Context) : RecyclerView.Adapter<RecyclerAdapter.Holder>() {
+    private var context: Context? = null
 
+    init {
+        this.context = context
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        return Holder(LayoutInflater.from(context).inflate(R.layout.movie_list,null,false))
+        return Holder(LayoutInflater.from(context).inflate(R.layout.movie_list, null, false))
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return 1
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        TODO("Not yet implemented")
+
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var movieImage: ImageView? = null
-        private var title:TextView?=null
-        private var rating:TextView?=null
-        private var date:TextView?=null
+        private var title: TextView? = null
+        private var rating: TextView? = null
+        private var date: TextView? = null
+        private var overView:TextView?=null
+
         init {
-            movieImage=itemView.findViewById(R.id.image)
-            title=itemView.findViewById(R.id.TitleOfMovie)
-            date=itemView.findViewById(R.id.dateOfMovie)
-            rating=itemView.findViewById(R.id.ratingPercent)
+            movieImage = itemView.findViewById(R.id.image)
+            title = itemView.findViewById(R.id.TitleOfMovie)
+            date = itemView.findViewById(R.id.dateOfMovie)
+            rating = itemView.findViewById(R.id.ratingPercent)
+            overView=itemView.findViewById(R.id.OverView)
         }
     }
 

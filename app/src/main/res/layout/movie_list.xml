@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#f7f7f7"
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
@@ -9,56 +11,75 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         app:cardCornerRadius="15dp"
-        app:cardUseCompatPadding="true"
-        app:contentPadding="10dp"
+
+        app:contentPaddingBottom="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:contentDescription="@string/image_of_the_movie" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/ratingPercent"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/image"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:text="NR" />
+                <TextView
+                    android:id="@+id/ratingPercent"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="NR" />
 
-            <TextView
-                android:id="@+id/TitleOfMovie"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ratingPercent"
-                android:layout_marginStart="7dp"
-                android:layout_marginLeft="7dp"
-                android:text="True History of the Kelly Gang" />
+                <TextView
+                    android:id="@+id/TitleOfMovie"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ratingPercent"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_marginLeft="7dp"
+                    android:text="True History of the Kelly Gang" />
 
-            <TextView
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TitleOfMovie"
-                android:layout_marginStart="7dp"
-                android:layout_marginLeft="7dp"
-                android:id="@+id/dateOfMovie"
-                android:layout_marginTop="8dp"
-                android:text="Apr 24, 2020" />
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TitleOfMovie"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginLeft="7dp"
+                    android:id="@+id/dateOfMovie"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_marginTop="4dp"
+                    android:text="Apr 24, 2020" />
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dateOfMovie"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:layout_marginLeft="7dp"
+                    android:id="@+id/OverView"
+                    android:layout_marginTop="8dp"
+                    android:text="Queen Poppy and Branch make a surprising discovery — there are other Troll worlds beyond their own, and their distinct differences create big clashes between these various tribes. When a mysterious threat puts all of the Trolls across the land in danger, Poppy, Branch, and their band of friends must embark on an epic quest to create harmony among the feuding Trolls to unite them against certain doom." />
 
-        </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
