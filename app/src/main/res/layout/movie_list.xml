@@ -1,25 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.cardview.widget.CardView
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:layout_margin="20dp"
-    app:cardCornerRadius="15dp"
-    app:contentPadding="10dp"
-    app:cardUseCompatPadding="true"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="200dp"/>
-    </RelativeLayout>
+    android:layout_height="match_parent">
 
-</androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="15dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:contentDescription="@string/image_of_the_movie" />
+
+            <TextView
+                android:id="@+id/ratingPercent"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:text="NR" />
+
+            <TextView
+                android:id="@+id/TitleOfMovie"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ratingPercent"
+                android:layout_marginStart="7dp"
+                android:layout_marginLeft="7dp"
+                android:text="True History of the Kelly Gang" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TitleOfMovie"
+                android:layout_marginStart="7dp"
+                android:layout_marginLeft="7dp"
+                android:id="@+id/dateOfMovie"
+                android:layout_marginTop="8dp"
+                android:text="Apr 24, 2020" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
