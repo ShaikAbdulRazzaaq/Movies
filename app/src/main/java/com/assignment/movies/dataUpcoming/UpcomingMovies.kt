@@ -1,6 +1,8 @@
-package com.assignment.movies.dataUpComing
+package com.assignment.movies.dataUpcoming
 
 
+import com.assignment.movies.dataUpcoming.Dates
+import com.assignment.movies.dataUpcoming.Result
 import com.google.gson.annotations.SerializedName
 
 data class UpcomingMovies(

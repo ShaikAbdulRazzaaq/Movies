@@ -1,4 +1,4 @@
-package com.assignment.movies.dataUpComing
+package com.assignment.movies.dataUpcoming
 
 
 import com.google.gson.annotations.SerializedName
