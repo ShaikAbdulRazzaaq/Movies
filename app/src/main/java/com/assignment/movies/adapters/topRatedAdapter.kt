@@ -10,16 +10,18 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.movies.R
 import com.assignment.movies.dataTopRated.MoviesTopRated
+import com.assignment.movies.dataTopRated.Result
+import com.assignment.movies.fragments.TopRated
 import com.squareup.picasso.Picasso
 
-open class topRatedAdapter(context: Context) :
+open class topRatedAdapter(context: Context, list: List<MoviesTopRated>) :
     RecyclerView.Adapter<topRatedAdapter.Holder>() {
     private var context: Context? = null
     private var list: List<MoviesTopRated>? = null
-    init {
-        this.context=context
-    }
-
+init {
+    this.list=list
+    this.context=context
+}
     fun settopRated(list: List<MoviesTopRated>){
         this.list = list
         notifyDataSetChanged()

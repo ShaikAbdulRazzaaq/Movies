@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.movies.R
 import com.assignment.movies.adapters.topRatedAdapter
+import com.assignment.movies.dataTopRated.Result
 import com.assignment.movies.viewModels.ViewModelTopRated
 
 
@@ -53,6 +54,7 @@ class TopRated : Fragment() {
     }
 
     private fun initItems() {
-recyclerView.adapter= context?.let { topRatedAdapter(it) }
+        var list:List<Result>?=null
+recyclerView.adapter= list?.let { context?.let { it1 -> topRatedAdapter(it1, it) } }
     }
 }
