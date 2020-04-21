@@ -8,7 +8,6 @@ import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,7 +20,6 @@ class MainActivity : AppCompatActivity() {
                 fragmentManager.beginTransaction()
             fragmentTransaction.add(R.id.mainFragment, viewPagerFragment)
             fragmentTransaction.commit()
-            Toast.makeText(this,"Fragment Created",Toast.LENGTH_SHORT).show()
         }
     }
 
