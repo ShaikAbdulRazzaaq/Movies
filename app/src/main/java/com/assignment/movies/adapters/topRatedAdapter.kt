@@ -6,20 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.widget.ContentLoadingProgressBar
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.movies.R
-import com.assignment.movies.dataTopRated.Result
+import com.assignment.movies.dataTopRated.MoviesTopRated
 import com.squareup.picasso.Picasso
 
-open class topRatedAdapter(context: Context, list: List<Result>) :
+open class topRatedAdapter(context: Context) :
     RecyclerView.Adapter<topRatedAdapter.Holder>() {
     private var context: Context? = null
-    private var list: List<Result>? = null
-
+    private var list: List<MoviesTopRated>? = null
     init {
-        this.context = context
+        this.context=context
+    }
+
+    fun settopRated(list: List<MoviesTopRated>){
         this.list = list
+        notifyDataSetChanged()
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -41,11 +44,11 @@ open class topRatedAdapter(context: Context, list: List<Result>) :
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val result = list!![position]
-        holder.title.text = result.title
-        holder.rating.text = result.voteAverage.toString()
-        holder.overView.text = result.overview
-        holder.date.text = result.releaseDate
-        Picasso.get().load("https://image.tmdb.org/t/p/w342"+result.posterPath).centerCrop().into(holder.image)
+        val topRated = list!![position]
+        holder.title.text = topRated.results[position].title
+        holder.rating.text = topRated.results[position].voteAverage.toString()
+        holder.overView.text = topRated.results[position].overview
+        holder.date.text = topRated.results[position].releaseDate
+        Picasso.get().load("https://image.tmdb.org/t/p/w342"+topRated.results[position].posterPath).centerCrop().into(holder.image)
     }
 }

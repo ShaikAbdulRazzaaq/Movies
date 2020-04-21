@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.movies.R
@@ -47,12 +45,14 @@ class TopRated : Fragment() {
             else
                 progressBar.visibility=View.INVISIBLE
         })
-        modelTopRated.topRated.observe(viewLifecycleOwner, Observer {  })
+        modelTopRated.topRated.observe(viewLifecycleOwner, Observer {
+            topRatedAdapter.settopRated(it)
+        })
 
         initItems()
     }
 
     private fun initItems() {
-
+recyclerView.adapter= context?.let { topRatedAdapter(it) }
     }
 }
