@@ -1,15 +1,22 @@
 package com.assignment.movies.interfaces
 
-import com.assignment.movies.dataTopRated.MoviesTopRated
-import com.assignment.movies.dataTopRated.Result
+import com.assignment.movies.data.MainModelClass
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface TopRatedMoviesInterface {
-    @GET("movie/top_rated/")
+internal interface GetDataFromMovieDB {
+    @GET("movie/top_rated")
     fun getTopRatedMovies(
-        @Query("api_Key") ApiKey: String?
-    ): Call<List<MoviesTopRated>>?
+        @Query("api_key") apiKey: String?,
+        @Query("language") language: String?,
+        @Query("page") page: Int
+    ): Call<MainModelClass?>?
+
+    @GET("movie/popular")
+    fun getPopularMovies(
+        @Query("api_key") apiKey: String?,
+        @Query("language") language: String?,
+        @Query("page") page: Int
+    ): Call<MainModelClass?>?
 }

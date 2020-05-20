@@ -6,51 +6,32 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.movies.R
-import com.assignment.movies.dataTopRated.MoviesTopRated
-import com.assignment.movies.dataTopRated.Result
-import com.assignment.movies.fragments.TopRated
-import com.squareup.picasso.Picasso
+import com.assignment.movies.data.Result
+import org.w3c.dom.Text
+import java.lang.reflect.Array.get
 
-open class topRatedAdapter(context: Context, list: List<MoviesTopRated>) :
-    RecyclerView.Adapter<topRatedAdapter.Holder>() {
-    private var context: Context? = null
-    private var list: List<MoviesTopRated>? = null
-init {
-    this.list=list
-    this.context=context
-}
-    fun settopRated(list: List<MoviesTopRated>){
-        this.list = list
-        notifyDataSetChanged()
+class topRatedAdapter(context: Context,list:List<Result>) : RecyclerView.Adapter<topRatedAdapter.TRViewHolder>() {
+    private val context:Context?=null
+    private var list:List<Result>?=null
+
+    class TRViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var thumbnailImage: ImageView=itemView.findViewById(R.id.thumbnailImage)
+        var thumnailTextName:TextView=itemView.findViewById(R.id.thumnailTextName)
     }
 
-    class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var title: TextView = itemView.findViewById(R.id.TitleOfMovie)
-        var date: TextView = itemView.findViewById(R.id.dateOfMovie)
-        var rating: TextView = itemView.findViewById(R.id.ratingPercent)
-        var overView: TextView = itemView.findViewById(R.id.OverView)
-        var image: ImageView = itemView.findViewById(R.id.image)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        return Holder(
-            LayoutInflater.from(context).inflate(R.layout.movie_list, null, false)
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TRViewHolder {
+       return TRViewHolder(LayoutInflater.from(context).inflate(R.layout.movies_list,parent,false))
     }
 
     override fun getItemCount(): Int {
-        return list?.size!!
+      return list?.size!!
     }
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        val topRated = list!![position]
-        holder.title.text = topRated.results[position].title
-        holder.rating.text = topRated.results[position].voteAverage.toString()
-        holder.overView.text = topRated.results[position].overview
-        holder.date.text = topRated.results[position].releaseDate
-        Picasso.get().load("https://image.tmdb.org/t/p/w342"+topRated.results[position].posterPath).centerCrop().into(holder.image)
+    override fun onBindViewHolder(holder: TRViewHolder, position: Int) {
+        var r:Result= list!![position]
+
     }
+
 }

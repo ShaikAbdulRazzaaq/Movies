@@ -1,9 +1,7 @@
-package com.assignment.movies.dataTopRated
-
-
+package com.assignment.movies.data
 import com.google.gson.annotations.SerializedName
 
-data class MoviesTopRated(
+data class MainModelClass(
     val page: Int,
     val results: List<Result>,
     @SerializedName("total_pages")

@@ -1,6 +1,4 @@
-package com.assignment.movies.dataUpcoming
-
-
+package com.assignment.movies.data
 import com.google.gson.annotations.SerializedName
 
 data class Result(
@@ -23,7 +21,7 @@ data class Result(
     val title: String,
     val video: Boolean,
     @SerializedName("vote_average")
-    val voteAverage: Double,
+    val voteAverage: Int,
     @SerializedName("vote_count")
     val voteCount: Int
 )
