@@ -9,16 +9,24 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.movies.R
 import com.assignment.movies.data.Result
-import org.w3c.dom.Text
-import java.lang.reflect.Array.get
+import com.squareup.picasso.Picasso
 
-class topRatedAdapter(context: Context,list:List<Result>) : RecyclerView.Adapter<topRatedAdapter.TRViewHolder>() {
+class topRatedAdapter(context: Context,list:List<Result>,thumbnailClicked: thumbnailClicked) : RecyclerView.Adapter<topRatedAdapter.TRViewHolder>() {
     private val context:Context?=null
     private var list:List<Result>?=null
-
-    class TRViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    interface thumbnailClicked{
+        fun thumbnail(index:Int)
+    }
+    private val imageUrl = "https://image.tmdb.org/t/p/w185"
+    class TRViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) ,View.OnClickListener {
         var thumbnailImage: ImageView=itemView.findViewById(R.id.thumbnailImage)
         var thumnailTextName:TextView=itemView.findViewById(R.id.thumnailTextName)
+        override fun onClick(v: View?) {
+           val index=adapterPosition
+            val thumbnailClicked:thumbnailClicked?=null
+            thumbnailClicked?.thumbnail(index)
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TRViewHolder {
@@ -30,8 +38,9 @@ class topRatedAdapter(context: Context,list:List<Result>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: TRViewHolder, position: Int) {
-        var r:Result= list!![position]
-
+        val r:Result= list!![position]
+        Picasso.get().load(imageUrl+r.posterPath).into(holder.thumbnailImage)
+        holder.thumnailTextName.text = r.title
     }
 
 }
