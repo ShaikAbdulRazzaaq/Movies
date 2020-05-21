@@ -13,6 +13,7 @@ class upcoming: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return (inflater.inflate(R.layout.upcoming_fragment,container, false))
     }
 }
