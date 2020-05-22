@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Movies</string>
     <string name="image_of_the_movie">Image of The Movie</string>
-    <string name="top_rated">Top-Rated</string>
-    <string name="upcoming">Upcoming</string>
 </resources>

@@ -21,7 +21,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TopRated : Fragment() {
-    private val API_KEY = "73884879dfa3d28cc666c9b18d79c862"
+    private val apiKey = "apiKey"
     private var recyclerView: RecyclerView?=this.topRatedRecycler
     private var progressBar:ProgressBar?=this.topRatedMoviesProgressBar
     override fun onCreateView(
@@ -34,7 +34,7 @@ class TopRated : Fragment() {
         progressBar=v.findViewById(R.id.topRatedMoviesProgressBar)
         progressBar?.visibility=View.VISIBLE
         val call: Call<MainModelClass?>? =
-            RetrofitSingleton.instance().getTopRatedMovies(API_KEY, "en", 1)
+            RetrofitSingleton.instance().getTopRatedMovies(apiKey, "en", 1)
         call?.enqueue(object : Callback<MainModelClass?> {
             override fun onFailure(call: Call<MainModelClass?>, t: Throwable) {
                 Log.e("TopRated", "Something is wrong" + t.message)

@@ -11,7 +11,7 @@ import com.assignment.movies.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class viewPager : Fragment() {
+class ViewPager : Fragment() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var tabLayout: TabLayout
     private var tabTitle= arrayOf("Upcoming Movies","Top-Rated Movies")

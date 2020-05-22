@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.movies.R
 import com.assignment.movies.RetrofitSingleton
-import com.assignment.movies.adapters.TopRatedAdapter
+import com.assignment.movies.adapters.UpcomingMovieAdapter
 import com.assignment.movies.data.MainModelClass
 import com.assignment.movies.data.Result
 import kotlinx.android.synthetic.main.top_rated_fragment.*
@@ -22,7 +22,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Upcoming : Fragment() {
-    private val API_KEY = "73884879dfa3d28cc666c9b18d79c862"
+    private val apiKey = "apiKey"
     private var recyclerView: RecyclerView? = this.topRatedRecycler
     private var progressBar: ProgressBar? = this.upComingMoviesProgressBar
     override fun onCreateView(
@@ -35,7 +35,7 @@ class Upcoming : Fragment() {
         recyclerView=v.findViewById(R.id.upComingMoviesRecycler)
         progressBar?.visibility = View.VISIBLE
         val call: Call<MainModelClass?>? =
-            RetrofitSingleton.instance().getPopularMovies(API_KEY, "en", 1)
+            RetrofitSingleton.instance().getPopularMovies(apiKey, "en", 1)
         call?.enqueue(object : Callback<MainModelClass?> {
             override fun onFailure(call: Call<MainModelClass?>, t: Throwable) {
                 progressBar?.visibility = View.INVISIBLE
@@ -61,6 +61,6 @@ class Upcoming : Fragment() {
     }
     private fun initiate(result: List<Result>) {
         recyclerView?.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
-        recyclerView?.adapter = context?.let { TopRatedAdapter(it, result) }
+        recyclerView?.adapter = context?.let { UpcomingMovieAdapter(it, result) }
     }
 }

@@ -2,7 +2,7 @@ package com.assignment.movies
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.assignment.movies.fragments.viewPager
+import com.assignment.movies.fragments.ViewPager
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewPagerFragmentSaved = supportFragmentManager.findFragmentById(R.id.mainFragment)
         if (viewPagerFragmentSaved == null) {
-            val viewPagerFragment = viewPager()
+            val viewPagerFragment = ViewPager()
             val fragmentManager = supportFragmentManager
             val fragmentTransaction =
                 fragmentManager.beginTransaction()
