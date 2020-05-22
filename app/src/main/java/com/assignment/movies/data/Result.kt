@@ -3,6 +3,7 @@ package com.assignment.movies.data
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Result(
     val adult: Boolean,
@@ -27,6 +28,4 @@ data class Result(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-
-
-)
+):Serializable

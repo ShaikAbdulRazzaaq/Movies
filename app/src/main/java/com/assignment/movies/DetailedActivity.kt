@@ -32,8 +32,13 @@ class DetailedActivity : AppCompatActivity() {
         dateOfMovie = findViewById(R.id.dateOfMovie)
         overView = findViewById(R.id.OverView)
         ratingPercent = findViewById(R.id.ratingPercent)
-
-
+        val intent=intent
+       val r:Result= intent.getSerializableExtra("Object") as Result
+        Picasso.get().load(imageUrl+r.backdropPath).into(imageView)
+        titleOfMovie.text=r.title
+        dateOfMovie.text=r.releaseDate
+        overView.text=r.overview
+        ratingPercent.text=r.voteAverage.toString()
     }
 
 

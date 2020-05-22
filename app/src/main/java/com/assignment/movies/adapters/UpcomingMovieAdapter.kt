@@ -42,6 +42,7 @@ class UpcomingMovieAdapter(private val context: Context, private val list: List<
             val index = holder.adapterPosition
             val intent = Intent(context, DetailedActivity::class.java)
             intent.putExtra("Position", index)
+            intent.putExtra("Object",r)
             context.startActivity(intent)
         }
     }

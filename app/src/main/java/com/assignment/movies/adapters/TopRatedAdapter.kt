@@ -14,13 +14,16 @@ import com.assignment.movies.R
 import com.assignment.movies.data.Result
 import com.squareup.picasso.Picasso
 
-class TopRatedAdapter(private val context: Context, private val list: List<Result>): RecyclerView.Adapter<TopRatedAdapter.TRViewHolder>() {
+class TopRatedAdapter(private val context: Context, private val list: List<Result>) :
+    RecyclerView.Adapter<TopRatedAdapter.TRViewHolder>() {
 
     private val imageUrl = "https://image.tmdb.org/t/p/w185"
+
     class TRViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var thumbnailImage: ImageView = itemView.findViewById(R.id.thumbnailImage)
         var thumbnailTextName: TextView = itemView.findViewById(R.id.thumbName)
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TRViewHolder {
         return TRViewHolder(
@@ -36,11 +39,12 @@ class TopRatedAdapter(private val context: Context, private val list: List<Resul
         val r: Result = list[position]
         holder.thumbnailTextName.text = r.title
         Picasso.get().load(imageUrl + r.posterPath).into(holder.thumbnailImage)
-        Log.e("Message",r.title)
+        Log.e("Message", r.title)
         holder.itemView.setOnClickListener {
             val index = holder.adapterPosition
             val intent = Intent(context, DetailedActivity::class.java)
-            intent.putExtra("Position",index)
+            intent.putExtra("Position", index)
+            intent.putExtra("Object",r)
             context.startActivity(intent)
         }
     }

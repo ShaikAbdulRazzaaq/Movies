@@ -37,6 +37,6 @@ class ViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun createFragment(position: Int): Fragment {
         return if (position == 1)
             TopRated()
-        else upcoming()
+        else Upcoming()
     }
 }
