@@ -15,10 +15,6 @@ class DetailedActivity : AppCompatActivity() {
     private lateinit var dateOfMovie: TextView
     private lateinit var overView: TextView
     private lateinit var ratingPercent: TextView
-
-    //variables
-
-
     //constants
     private val imageUrl = "https://image.tmdb.org/t/p/w500"
 
