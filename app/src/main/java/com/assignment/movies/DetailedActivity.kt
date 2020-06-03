@@ -15,6 +15,7 @@ class DetailedActivity : AppCompatActivity() {
     private lateinit var dateOfMovie: TextView
     private lateinit var overView: TextView
     private lateinit var ratingPercent: TextView
+
     //constants
     private val imageUrl = "https://image.tmdb.org/t/p/w500"
 
@@ -26,15 +27,12 @@ class DetailedActivity : AppCompatActivity() {
         dateOfMovie = findViewById(R.id.dateOfMovie)
         overView = findViewById(R.id.OverView)
         ratingPercent = findViewById(R.id.ratingPercent)
-        val intent=intent
-       val r:Result= intent.getSerializableExtra("Object") as Result
-        Picasso.get().load(imageUrl+r.backdropPath).into(imageView)
-        titleOfMovie.text=r.title
-        dateOfMovie.text=r.releaseDate
-        overView.text=r.overview
-        ratingPercent.text=r.voteAverage.toString()
+        val intent = intent
+        val r: Result = intent.getSerializableExtra("Object") as Result
+        Picasso.get().load(imageUrl + r.backdropPath).into(imageView)
+        titleOfMovie.text = r.title
+        dateOfMovie.text = r.releaseDate
+        overView.text = r.overview
+        ratingPercent.text = r.voteAverage.toString()
     }
-
-
 }
-
